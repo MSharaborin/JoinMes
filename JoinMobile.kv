@@ -1,0 +1,144 @@
+ScreenManager:
+    JoinMobile:
+    Register:
+    Welcome:
+
+<MyLabel@MDLabel>
+    size_hint_y: None
+    height: self.texture_size[1]
+    theme_text_color: "Custom"
+    text_color: 1, 1, 1, 1
+
+<AppMDTextField@MDTextFieldRound>
+    size_hint_y: None
+    pos_hint: {"center_x": .5}
+    font_size: 20
+    theme_text_color: "Custom"
+    text_color: 0.35, 0.35, 0.35, 1
+
+<AppButton@MDRoundFlatButton>
+    size_hint_y: None
+    font_size: 20
+    pos_hint: {"center_x": .5}
+    theme_text_color: "Custom"
+    text_color: 0.35, 0.35, 0.35, 1
+    md_bg_color: 0.85, 0.58, 0.58, 1
+    line_color: 0.93, 0.9, 0.9, 1
+
+<JoinMobile>:
+    name: 'join'
+    login: login
+    password: password
+    theme_text_color: "Custom"
+    md_bg_color: 0.02, 0.65, 0.58, 1
+
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_y: None
+        height: self.minimum_height
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        spacing: "10dp"
+        padding: "45dp", "32dp", "45dp", "32pd"
+
+        MyLabel:
+            text: 'Welcome to JOIN.'
+            bold: True
+            font_size: 30
+
+        AppMDTextField:
+            id: login
+            hint_text: 'Sign In'
+            icon_left: 'account'
+
+        Widget:
+            pos_hint_y: None
+            height: "4dp"
+
+        AppMDTextField:
+            id: password
+            hint_text: "Password"
+            icon_left: 'lock'
+            password: True
+
+        AppButton:
+            text: "Join"
+            on_press: root.click_join()
+
+        MyLabel:
+            text: 'If you new user, push to "Sign Up" for Register!'
+            bold: True
+
+        AppButton:
+            text: "Sign Up"
+            on_press: root.manager.current = 'register'
+
+<Register>:
+    name: 'register'
+    login: login
+    password: password
+    password_repeat: password_repeat
+    theme_text_color: "Custom"
+    md_bg_color: 0.02, 0.65, 0.58, 1
+
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_y: None
+        height: self.minimum_height
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        spacing: "10dp"
+        padding: "45dp", "32dp", "45dp", "32pd"
+
+        MyLabel:
+            text: 'Welcome to JOIN.'
+            bold: True
+            font_size: 30
+
+        AppMDTextField:
+            id: login
+            hint_text: 'Login'
+            icon_left: 'login'
+
+        Widget:
+            pos_hint_y: None
+            height: "4dp"
+
+        AppMDTextField:
+            id: password
+            hint_text: "Password"
+            icon_left: 'lock'
+            password: True
+
+        Widget:
+            pos_hint_y: None
+            height: "4dp"
+
+        AppMDTextField:
+            id: password_repeat
+            hint_text: "Repeat Password"
+            icon_left: 'lock'
+            password: True
+
+        AppButton:
+            text: "Accept"
+
+        AppButton:
+            text: "Back"
+            on_press: root.manager.current = 'join'
+
+<Welcome>:
+    name: 'welcome'
+    theme_text_color: "Custom"
+    md_bg_color: 0.02, 0.65, 0.58, 1
+
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_y: None
+        height: self.minimum_height
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        spacing: "10dp"
+        padding: "45dp", "32dp", "45dp", "32pd"
+
+        MyLabel:
+            text: 'Welcome to the new program JOIN.'
+            bold: True
+            font_size: 30
